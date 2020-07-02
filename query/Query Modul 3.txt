@@ -1,0 +1,59 @@
+insert all
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(1, '06201810699', 'budi', 'Informatika', 'tambaksari')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(2, '06201810792', 'arya', 'TeknikSipil', 'Kalijudan')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(3, '06201810401', 'budi', 'Despro', 'Rungkut')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(4, '06201810123', 'anjas', 'Sipil', 'kalianyar')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(5, '06201810412', 'adi', 'Infor', 'Bulak')
+select 1 from dual;
+
+Select nama, max(npm), min(npm)
+From mahasiswa
+Group by nama;
+
+Select sum (npm)
+From mahasiswa;
+
+select count(npm) as hasil from mahasiswa where nama = 'budi' or jurusan = 'informatika';
+
+Select nama, avg(npm), sum(npm)
+From mahasiswa
+Group by nama;
+
+select npm,
+(select max(npm) from mahasiswa where mahasiswa.npm = krs.npm) as terbanyak,
+(select max(npm) from mahasiswa where mahasiswa.npm = krs.npm) as terkecil,
+(select avg(npm) from mahasiswa where mahasiswa.npm = krs.npm) as hasil
+from krs where npm = 06201810699;
+
+select npm, 
+(select count(npm) from mahasiswa where mahasiswa.npm = krs.npm)
+as id from krs;
+
+select npm,
+(select sum(npm) from mahasiswa WHERE mahasiswa.npm = krs.npm) as hasil from krs WHERE npm = 06201810699;
+
+select npm,
+(select avg(npm) from mahasiswa WHERE mahasiswa.npm = krs.npm) as hasil from krs WHERE npm = 06201810699;
+
+select npm,
+(select avg(npm) from mahasiswa WHERE mahasiswa.npm = krs.npm) as hasil from krs group by npm;
+
+select mahasiswa.nama, krs.npm
+from mahasiswa, krs
+where mahasiswa.npm = krs.npm and krs.kdmk = '061' and
+krs.npm = (select avg(npm)
+from krs 
+where kdmk = '061');
+
+
+select mahasiswa.nama, krs.npm
+from mahasiswa, krs
+where mahasiswa.npm = krs.npm and krs.kdmk = '061' and
+krs.npm = (select avg(npm)
+from krs 
+where kdmk = '061') or
+krs.npm = (select sum(npm)
+from krs 
+where kdmk = '091');
+
+

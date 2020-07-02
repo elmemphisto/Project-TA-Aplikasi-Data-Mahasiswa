@@ -1,0 +1,22 @@
+select a.nama, b.npm
+from mahasiswa a join
+krs b
+on a.npm = b.npm;
+
+select a.nama, b.kdmk, c.npm
+from mahasiswa a left join krs c on (a.npm <= c.npm) left join matakuliah b on (b.kdmk <= c.npm);
+
+select a.nama, b.kdmk, c.npm, ta from mahasiswa a right join krs c on a.id_mahasiswa = c.id_krs right join matakuliah b on b.id_matakuliah = c.id_krs
+where ta = (select min(ta) as hasil from krs) and ta = (select min(ta) as hasil from krs);
+
+
+create view mahasiswa_tambaksari as select nama, npm, alamat from
+mahasiswa where alamat = 'tambaksari';
+
+create view mahasiswa_itats1 as select a.nama, b.kdmk, c.npm
+from mahasiswa a left join krs c on (a.npm <= c.npm) left join matakuliah b on (b.kdmk <= c.npm);
+
+create view mahasiswa_itats2 as select a.nama, b.kdmk, c.npm, ta from mahasiswa a right join krs c on a.id_mahasiswa = c.id_krs right join matakuliah b on b.id_matakuliah = c.id_krs
+where ta = (select min(ta) as hasil from krs) and ta = (select min(ta) as hasil from krs);
+
+

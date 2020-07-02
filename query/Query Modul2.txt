@@ -1,0 +1,153 @@
+insert all
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(1, '06201810699', 'budi', 'Informatika', 'tambaksari')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(2, '06201810792', 'arya', 'TeknikSipil', 'Kalijudan')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(3, '06201810401', 'budi', 'Despro', 'Rungkut')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(4, '06201810123', 'anjas', 'Sipil', 'kalianyar')
+into mahasiswa(Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT) values(5, '06201810412', 'adi', 'Infor', 'Bulak')
+select 1 from dual;
+
+insert into krs
+
+select 1 from dual;
+
+insert all
+into krs(id_krs, npm, kdmk, ta, smt) values(1, '06201810699', '061', '2014', '4')
+into krs(id_krs, npm, kdmk, ta, smt) values(2, '06201810792', '031', '2017', '2')
+into krs(id_krs, npm, kdmk, ta, smt) values(3, '06201810401', '091', '2013', '7')
+into krs(id_krs, npm, kdmk, ta, smt) values(4, '06201810312', '021', '2015', '5')
+into krs(id_krs, npm, kdmk, ta, smt) values(5, '06201810741', '011', '2012', '6')
+select 1 from dual;
+
+insert into matakuliah
+2 values(seq_matakuliah.nextval, 1, '061', 'RPl', '100');
+INSERT INTO matakuliah
+  2  VALUES(SEQ_SKS.nextval, 'rpl', 100);
+
+insert all
+into matakuliah(id_matakuliah, kdmk, nama_mk, sks) values(1, '061', 'RPl', '3')
+into matakuliah(id_matakuliah, kdmk, nama_mk, sks) values(2, '031', 'RPl', '2')
+into matakuliah(id_matakuliah, kdmk, nama_mk, sks) values(3, '091', 'RPl', '4')
+select 1 from dual;
+
+update mahasiswa
+set nama = 'dika'
+where id_mahasiswa = 1;
+
+update mahasiswa
+set nama = 'ripzul'
+where id_mahasiswa = 2;
+
+update mahasiswa
+set nama = 'doke'
+where id_mahasiswa = 3;
+
+update matakuliah
+set kdmk = '031'
+where id_matakuliah = 1;
+
+update matakuliah
+set kdmk = '041'
+where id_matakuliah = 2;
+
+update krs
+set kdmk = '06201110981'
+where id_krs = 1;
+
+SELECT SEQ_sks.nextval
+  2  FROM dual;
+
+select nama from mahasiswa group by nama;
+
+select Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT
+from mahasiswa
+where nama = 'ripzul' and npm = '06201810792' or alamat = 'tambaksari';
+
+select Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT
+from mahasiswa
+where alamat = 'rungkut' or alamat = 'tambaksari';
+
+SELECT Id_mahasiswa, NPM, NAMA, JURUSAN, ALAMAT FROM mahasiswa
+WHERE nama LIKE '%d%' AND nama LIKE '%a%' AND id_mahasiswa < 2;
+
+delete from mahasiswa WHERE nama = 'budi'
+OR Jurusan ='despro' and alamat = 'bulak';
+
+delete from mahasiswa < 3;
+
+delete from mahasiswa order by nama desc limit 3;
+
+delete from mahasiswa where id_mahasiswa >= 3;
+
+delete from mahasiswa 
+
+select * from mahasiswa order by NAMA desc; order by
+select avg(sks) from matakuliah; group by
+
+select into krs
+1 values(sks.nextval, '06201810699');
+
+select into mahasiswa
+1 values (SEQ_MAHASISWA.nextval, '06201810632');
+
+insert into mahasiswa values (SEQ_MAHASISWA.NEXTVAL, '0620792', 'KRI', 'PERAWAT', 'BULAK');
+
+
+create table obat_06929
+(
+	id_obat integer not null,
+	id_kasir integer,
+	nama_obat varchar2(25),
+	harga_obat number(25)
+);
+CREATE SEQUENCE SEQ_mahasiswa START WITH 5 INCREMENT BY 5; 
+INSERT INTO USER_TABLE VALUES (SEQ_USER.NEXTVAL, 'Washington', 'George');
+
+INSERT INTO USER_TABLE VALUES (SEQ_USER.NEXTVAL, 'Jefferson', 'Thomas'); 
+
+
+ select ta,
+count (kdmk !=)
+ from krs
+ group by ta;
+
+count (IF(kdmk != '021', ta))
+
+
+select nama, min(npm), max(npm)
+from (nama, id_mahasiswa)
+from mahasiswa
+group by nama;
+
+
+ select id_mahasiswa, max(npm) as terbanyak,
+  2  min(npm) as terendah from mahasiswa
+  3  group by id_mahasiswa;
+
+ select id_mahasiswa, max(npm) as terbanyak,
+  2  min(npm) as terendah from mahasiswa
+  3  group by id_mahasiswa; 
+
+select id_mahasiswa, sum(npm) as sum_awal,
+sum(npm) as sum_akhir from mahasiswa
+group by id_mahasiswa; 
+
+select id_mahasiswa, avg(npm) as avg_awal,
+avg(npm) as avg_akhir from mahasiswa
+group by id_mahasiswa; 
+
+SELECT nama, COUNT(nama) AS frekuensi_nama,
+ROUND((COUNT(nama)/(SELECT COUNT(*) FROM mahasiswa))*100,0+10) AS Prosentase
+FROM mahasiswa
+GROUP BY nama;
+
+SELECT nama, COUNT(nama) AS frekuensi_nama_awal,
+COUNT(nama) AS frekuensi_nama_akhir,
+ROUND((COUNT(nama)/(SELECT COUNT(*) FROM mahasiswa))*100,0+10) AS Prosentase
+FROM mahasiswa
+GROUP BY nama;
+
+
+select id_mahasiswa, avg(npm) as avg_awal,
+avg(npm) as avg_akhir from mahasiswa
+group by id_mahasiswa; 
+

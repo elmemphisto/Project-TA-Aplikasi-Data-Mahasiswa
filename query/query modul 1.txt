@@ -1,0 +1,57 @@
+create table mahasiswa
+(
+Id_mahasiswa int not null,
+Npm varchar2(15),
+Nama varchar2(15),
+Jurusan varchar2(15),
+Alamat varchar2(100),
+constraint PK_mahaiswa primary key (id_mahasiswa)
+);
+
+create table krs
+(
+Id_krs int not null,
+Npm varchar2(15),
+Kdmk Varchar2(25),
+Ta varchar(25),
+Smt varchar2(25),
+constraint PK_krs primary key (id_krs)
+);
+
+create table matakuliah
+(
+Id_matakuliah int not null,
+Kdmk varchar2(15),
+Nama_mk Varchar2(25),
+Sks number(25),
+constraint PK_matakuliah primary key (id_matakuliah)
+);
+
+create sequence sks
+minvalue 1
+maxvalue 9999
+start with 1
+increment by 1
+cache 20;
+
+alter table krs rename column kdmk to kdmk_06987;
+
+alter table matakuliah
+modify Sks number(25) not null unique;
+
+ALTER TABLE matakuliah
+MODIFY SKS int(25)
+
+select count(*) from
+USER_IND_COLUMNS cols
+where cols.table_name='MATAKULIAH'
+and cols.COLUMN_NAME='SKS';
+
+
+alter table matakuliah
+modify sks int;
+
+alter table daftar
+modify kuliah;
+
+select * from all_users;
